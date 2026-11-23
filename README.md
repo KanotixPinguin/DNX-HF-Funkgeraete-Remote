@@ -77,3 +77,12 @@ sudo ./install.sh uninstall
 **DE:** Private, inoffizielle Hobby-Anpassung (Mod-Mode) für OpenWebRX / OpenWebRX+. Kein offizielles OpenWebRX- oder OpenWebRX+-Projekt, keine Verbindung zu oder Unterstützung durch die jeweiligen Entwickler. Nutzung erfolgt vollständig auf eigene Gefahr; soweit gesetzlich zulässig wird jede Haftung ausgeschlossen. Vor dem Einspielen bitte Sicherungen anlegen.
 
 **EN:** Private, unofficial hobby modification (Mod-Mode) for OpenWebRX / OpenWebRX+. Not an official OpenWebRX or OpenWebRX+ project; no affiliation with or support from its maintainers. Use entirely at your own risk; to the extent permitted by law, no liability is accepted. Always create backups before installing.
+
+---
+
+## Verbindungen im DNX-Ökosystem
+
+![DNX Gesamtarchitektur & Verbindungen](docs/dnx-architektur-verbindungen.png)
+
+* **Verbindung zu `DNX-Styler` (`TOOL_DEFS` & `dnx_3dtool`):** Die 3 Kurzwellen-/Allmode-Transceiver lassen sich direkt über `t_funkgeraet1..3` in `#dnx-blk-tools` schalten; der Zustand liegt in `localStorage["dnx.fg.menu"]` / `dnx.fg.zustand3` und läuft sauber neben `dnx_3dtool` (`DNX-Integrated-Waterfall-3D`).
+* **Verbindung zu `DNX-Receiver-Account-Control`:** Das Recht `tune` bzw. `other_tools` über `:8095/api/me` steuert die Bedienfreigabe pro Rolle.
